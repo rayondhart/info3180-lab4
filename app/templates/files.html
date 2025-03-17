@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+
+<h1>Uploaded Image Files</h1>
+<ul style="display: flex;justify-content: space-around;flex-wrap: wrap;gap: 10px;">
+    {% for file in imgs %}
+        <div style="flex: 1 1 calc(33.333% - 20px);"><img style="width: 400px; padding: 5px; " src="{{ url_for( 'get_image' , filename=file) }}" alt="{{ file }}" style="max-width: 100px; max-height: 100px;"></div>
+    {% endfor %}
+</ul>
+
+{% endblock %}
