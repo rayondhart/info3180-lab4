@@ -30,3 +30,9 @@ class UserProfile(db.Model):
 
     def __repr__(self):
         return '<User %r>' % (self.username)
+
+    def __init__(self, first_name, last_name, username, password):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.username = username
+        self.password = generate_password_hash(password, method='pbkdf2:sha256')
